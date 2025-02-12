@@ -22,6 +22,7 @@ public void tester()
         System.out.println("An error occurred.");
         e.printStackTrace();
     }
+  
   System.out.println("there are " + lines.length + " lines");
   for (int i=0; i < lines.length; i++) 
   {
@@ -35,15 +36,32 @@ public void tester()
     }
   }
 }
+
 public boolean palindrome(String word)
 {
   //your code here
-  return false;
+
+  // If a char isn't "[^a-zA-Z0-9]" (eg. '!', ','), it will be replaced w/ blank
+  String cleanedWord = word.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+  // Check if the cleaned word is the same as its reverse
+  return cleanedWord.equals(reverse(cleanedWord));
+  
+  //return false;
 }
+
 public String reverse(String str)
 {
     String sNew = new String();
     //your code here
-    return sNew;
+
+    // Loop through the string in reverse order and add alphanumeric characters
+    for (int i = str.length() - 1; i >= 0; i--) {
+        char c = str.charAt(i);
+        // only add alphanumeric charas to the reversed string
+        if (Character.isLetterOrDigit(c)) {
+            sNew += c;
+        }
+    }
+    return sNew.toLowerCase;
 }
 }
